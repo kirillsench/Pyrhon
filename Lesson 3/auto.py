@@ -22,8 +22,3 @@ class Auto:
             passengers += str(passenger)
         return (f"Drivers:\n{drivers}\n"
                 f"Passengers:\n{passengers}")
-
-
-
-
-
