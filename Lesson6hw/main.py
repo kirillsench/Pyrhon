@@ -20,7 +20,7 @@ def divider(a, b):
     except ZeroDivisionError as zd:
         print(zd)
 
-data = {(10,): 2, (2,): 5, ("123",): 4, (18,): 0, (8,): 4}
+data = {(14,): 6, (3,): 4, ("123",): 2, (11,): 0, (9,): 2}
 for key in data:
     try:
         res = divider(key[0], data[key])
