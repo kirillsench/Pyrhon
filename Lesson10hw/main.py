@@ -4,7 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 
 def get_temperature():
-    url = "https://sinoptik.ua/Погода у Києві"
+    url = "https://sinoptik.ua/погода-киев"
     response = requests.get(url)
     soup = BeautifulSoup(response.content, "html.parser")
     temperature = soup.find(class_="temperature").get_text().strip()
@@ -13,7 +13,7 @@ def get_temperature():
 def insert_data(date_time, temperature):
     conn = sqlite3.connect('weather.db')
     c = conn.cursor()
-    c.execute("INSERT INTO WeatherInKyiv (date_time, temperature) VALUES (?, ?)", (date_time, temperature))
+    c.execute("INSERT INTO WeatherKyiv (date_time, temperature) VALUES (?, ?)", (date_time, temperature))
     conn.commit()
     conn.close()
 
@@ -23,4 +23,4 @@ temperature = get_temperature()
 
 insert_data(current_datetime, temperature)
 
-print("Success , check data-base.")
+print("Успішно , дані внесено .")
