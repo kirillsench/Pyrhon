@@ -4,6 +4,7 @@ from logger import Logger
 from bs4 import BeautifulSoup
 from datetime import datetime
 import requests
+import time
 
 logger = Logger(filename='loger.log')
 
@@ -62,13 +63,14 @@ def main():
 
         print("Choose option:")
         print("1. Дізнатись погоду у Києві")
-        print("2. Конвертація валют")
+        print("2. Конвертація грошей")
 
         option = int(input("Choose (1/2): "))
 
         if option == 1:
             current_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             temperature = get_temperature()
+            print(f"{current_datetime} - {temperature}")
             insert_data('WeatherKyiv', None, current_datetime, temperature)
             print("Weather data entered successfully.")
 
